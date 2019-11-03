@@ -1,17 +1,19 @@
 import torch
 from setuptools import setup
 import torch.utils.cpp_extension as cpp
-import os
 
 # change compiler
-os.environ["CC"] = "gcc-9"
-os.environ["CXX"] = "gcc-9"
+import os
+os.environ["CC"] = "clang++"
+os.environ["CXX"] = "clang++"
+#os.environ["CC"] = "gcc-9"
+#os.environ["CXX"] = "gcc-9"
 
 # In any case, include the CPU version
 modules = [cpp.CppExtension(
     'torchsearchsorted.cpu',
     ['torchsearchsorted/cpu/searchsorted_cpu_wrapper.cpp'])]
-    
+
 # if CUDA is available, add the cuda extension
 if torch.cuda.is_available():
     modules += [cpp.CUDAExtension(
