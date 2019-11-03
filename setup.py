@@ -11,7 +11,7 @@ os.environ["CXX"] = "gcc-9"
 modules = [cpp.CppExtension(
     'torchsearchsorted.cpu',
     ['torchsearchsorted/cpu/searchsorted_cpu_wrapper.cpp'])]
-
+    
 # if CUDA is available, add the cuda extension
 if torch.cuda.is_available():
     modules += [cpp.CUDAExtension(
