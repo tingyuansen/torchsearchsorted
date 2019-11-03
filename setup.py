@@ -1,6 +1,11 @@
 import torch
 from setuptools import setup
 import torch.utils.cpp_extension as cpp
+import os
+
+# change compiler
+os.environ["CC"] = "gcc"
+os.environ["CXX"] = "gcc"
 
 # In any case, include the CPU version
 modules = [cpp.CppExtension(
