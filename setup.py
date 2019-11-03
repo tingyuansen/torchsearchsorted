@@ -2,13 +2,6 @@ import torch
 from setuptools import setup
 import torch.utils.cpp_extension as cpp
 
-# change compiler
-#import os
-#os.environ["CC"] = "clang"
-#os.environ["CXX"] = "clang"
-#os.environ["CC"] = "gcc-9"
-#os.environ["CXX"] = "gcc-9"
-
 # In any case, include the CPU version
 modules = [cpp.CppExtension(
     'torchsearchsorted.cpu',
